@@ -45,4 +45,17 @@ class MyStrite(pygame.sprite.Sprite):
                 self.frame = self.first_frame
             self.last_time = current_time
 
+        # build current frame only if it changed
+        if self.frame != self.old_frame:
+            frame_x = (self.frame % self.columns) * self.frame_width
+            frame_y = (self.frame// self.columns) * self.frame_height
+            rect = Rect(frame_x, frame_y, self.frame_width, self.frame_height)
+            self.image = self.master_image.subsurface(rect)
+            self.old_frame = self.frame
+
+    def __str__(self):
+        return str(self.frame) + ", " + str(self.first_frame) ", "
+            + str(self.last_frame) + ", " + str(self.frame_width) + ", "
+            + str(self.frame_height) + ", " + str(self.columns) + ", " + str(self.rect)
+
     
