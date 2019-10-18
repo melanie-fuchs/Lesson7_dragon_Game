@@ -1,3 +1,4 @@
+#test github
 class MyStrite(pygame.sprite.Sprite):
     def __init__(self, target):
         pygame.sprite.Sprite.__init__(self) #extend the base Sprite class
